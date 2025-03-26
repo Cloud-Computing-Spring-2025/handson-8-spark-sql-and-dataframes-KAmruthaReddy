@@ -299,12 +299,13 @@ A leaderboard of verified users based on audience engagement.
 
 ---
 
-**Task1 code explanation**
-Explanation:
+### **Task1 code explanation**
+
+**Explanation**
 
 This PySpark script analyzes hashtag trends from a CSV file. It extracts individual hashtags, counts their occurrences, sorts them in descending order, and saves the results as a CSV file.
 
-Key Steps:
+**Key Steps**
 
 Initialize Spark → SparkSession.builder.appName("HashtagTrends").getOrCreate()
 
@@ -316,7 +317,7 @@ Count & Sort → groupBy("hashtag").count().orderBy(col("count").desc())
 
 Save Output → coalesce(1).write.mode("overwrite").csv("outputs/hashtag_trends.csv", header=True)
 
-Summary of Workflow:
+**Summary of Workflow**
 
 Load the posts data from input/posts.csv.
 
@@ -344,13 +345,13 @@ hashtag,count
 "#fail",12
 ```
 
-**Task2 code explanation**
+### **Task2 code explanation**
 
-Explanation:
+**Explanation**
 
 This PySpark script analyzes user engagement on social media by age group. It joins user and post datasets, calculates the average likes and retweets per age group, and saves the results as a CSV file.
 
-Key Steps:
+**Key Steps**
 
 Initialize Spark → SparkSession.builder.appName("EngagementByAgeGroup").getOrCreate()
 
@@ -364,7 +365,7 @@ Sort Results → orderBy(col("AvgLikes").desc())
 
 Save Output → coalesce(1).write.mode("overwrite").csv("outputs/engagement_by_age.csv", header=True)
 
-Summary of Workflow:
+**Summary of Workflow**
 
 Initialize Spark Session – Set up Spark for processing.
 
@@ -387,13 +388,13 @@ Adult,71.57894736842105,32.10526315789474
 Teen,70.38888888888889,31.444444444444443
 ```
 
-**Task3 code explanation**
+### **Task3 code explanation**
 
-Explanation:
+**Explanation**
 
 This PySpark script analyzes the relationship between post sentiment and engagement (likes & retweets). It categorizes posts into Positive, Neutral, and Negative based on sentiment scores, calculates average engagement metrics, and saves the results as a CSV file.
 
-Key Steps:
+**Key Steps**
 
 Initialize Spark → SparkSession.builder.appName("SentimentVsEngagement").getOrCreate()
 
@@ -413,7 +414,7 @@ Sort Results → orderBy("Sentiment")
 
 Save Output → coalesce(1).write.mode("overwrite").csv("outputs/sentiment_engagement.csv", header=True)
 
-Summary of Workflow:
+**Summary of Workflow**
 
 Initialize Spark Session – Set up Spark for processing.
 
@@ -436,9 +437,9 @@ Positive,74.5609756097561,25.585365853658537
 
 ```
 
-**Task4 code explanation**
+### **Task4 code explanation**
 
-Explanation:
+**Explanation**
 
 This PySpark script identifies the top 5 verified users with the highest engagement (reach) on social media. It calculates reach as the sum of likes and retweets, aggregates the total reach per verified user, and saves the results.
 
@@ -460,7 +461,7 @@ Sort & Select Top 5 → orderBy(col("TotalReach").desc()).limit(5)
 
 Save Output → coalesce(1).write.mode("overwrite").csv("outputs/top_verified_users.csv", header=True)
 
-Summary of Workflow:
+**Summary of Workflow**
 
 Initialize Spark Session – Set up Spark for processing.
 
